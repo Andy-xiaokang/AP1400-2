@@ -1,6 +1,9 @@
 */build
 .DS_Store
 .vscode
+.idea
+.qtc_clangd
+cmake-build-debug
 
 # Prerequisites
 *.d
