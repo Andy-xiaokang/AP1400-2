@@ -8,12 +8,12 @@
 #include "q3.h"
 #include "q4.h"
 
-/*
+
 TEST(HW6Test, TEST1) {
-    auto min1 = q1::gradient_descent(0.01, 0.1, cos);
+    auto min1 = q1::gradient_descent(0.01, 0.1, static_cast<double(*)(double)>(cos));
     EXPECT_NEAR(min1, 3.14, 0.1);
 
-    auto min2 = q1::gradient_descent(0.01, 0.01, cos);
+    auto min2 = q1::gradient_descent(0.01, 0.01, static_cast<double(*)(double)>(cos));
     EXPECT_NEAR(min2, 3.14, 0.01);
 }
 
@@ -32,12 +32,12 @@ TEST(HW6Test, TEST3) {
 }
 
 TEST(HW6Test, TEST4) {
-    struct Func
-    {
-        double operator()(double a) {return sin(a);}
-    };
-    auto min = q1::gradient_descent<double, Func>(0.0, 0.01);
-    EXPECT_NEAR(min, -1.57, 0.01);
+   struct Func
+   {
+       double operator()(double a) {return sin(a);}
+   };
+   auto min = q1::gradient_descent<double, Func>(0.0, 0.01);
+   EXPECT_NEAR(min, -1.57, 0.01);
 }
 
 TEST(HW6Test, TEST5) {
@@ -70,6 +70,7 @@ TEST(HW6Test, TEST7) {
     auto flights = q3::gather_flights("flights.txt");
 
     std::vector<std::string> flight_numbers;
+
     while (!flights.empty()) 
     {
         flight_numbers.push_back(flights.top().flight_number);
@@ -96,9 +97,9 @@ TEST(HW6Test, TEST9) {
     auto kalman{q4::kalman_filter(sensors)};
     EXPECT_NEAR(kalman.x, 1.102, 0.01);
     EXPECT_NEAR(kalman.y, 0.4440, 0.01);
-    // std::cout << kalman.x << ", " << kalman.y << std::endl;
+     std::cout << kalman.x << ", " << kalman.y << std::endl;
 }
-*/
+
 
 
 
